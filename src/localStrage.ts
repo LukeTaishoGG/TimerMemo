@@ -31,6 +31,3 @@ export function saveNote (note :string) {
   localStorage.setItem("notebook",note )
 }
 
-export const startNote = () => {
-  getNote()
-}

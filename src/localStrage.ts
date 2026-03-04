@@ -17,5 +17,17 @@ export function addMemo (input:string) {
 }
 
 export function getmemo () {
-  localStorage.getItem("inputMemo")
+  const nowMemo = localStorage.getItem("inputmemo")
+  console.log(nowMemo)
+  return nowMemo
 }
+
+export function getNote () {
+  const nowNote = localStorage.getItem("notebook")
+  console.log('自動取得用:',nowNote)
+  return nowNote
+}
+export function saveNote (note :string) {
+  localStorage.setItem("notebook",note )
+}
+

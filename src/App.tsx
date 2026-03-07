@@ -7,7 +7,6 @@ function App() {
   const testMemo = addGetMemo
   const deleate = clearMemo
 
-
   const [memo,setMemo] = useState('')
 
   const [note, setNote] = useState(() => getNote() ?? "")

@@ -1,13 +1,21 @@
-import { addGetMemo,clearMemo,getmemo ,addMemo, saveNote, getNote} from './localStrage'
-import React, { useState } from 'react'
-import './App.css'
-
+import {
+  addGetMemo,
+  clearMemo,
+  getmemo,
+  addMemo,
+  saveNote,
+  getNote,
+} from "./localStrage"
+import React, { useState } from "react"
+import { DeskTopSelect } from "@/components/TimeSelect/DeskTopSelect"
+import "./App.css"
+import { MobileSelect } from "@/components/TimeSelect/MobileSelect"
 
 function App() {
   const testMemo = addGetMemo
   const deleate = clearMemo
 
-  const [memo,setMemo] = useState('')
+  const [memo, setMemo] = useState("")
 
   const [note, setNote] = useState(() => getNote() ?? "")
 
@@ -17,7 +25,6 @@ function App() {
     addMemo(typedText)
   }
 
-  
   const getMemo = () => {
     const hasMemo = getmemo()
     setMemo(hasMemo ?? "") //エラー解消
@@ -31,30 +38,27 @@ function App() {
 
   return (
     <>
-      <div style={{display:"flex"}}>
+      <div style={{ display: "flex" }}>
         <div>
-          <button onClick={() => testMemo()}/>
-          <button onClick={() => deleate()}/>
-
-
+          <button onClick={() => testMemo()} />
+          <button onClick={() => deleate()} />
 
           <p>ボタン取得メモ</p>
           <button onClick={getMemo}>メモの取得</button>
-          <input  value={memo}onChange={handleMemo}
-          width={"500px"}
-          ></input>
-
+          <input value={memo} onChange={handleMemo} width={"500px"}></input>
         </div>
-
-
 
         <div>
           <p>保存できるメモ</p>
-          <input value={note} onChange={savingNote} placeholder="自動更新用メモ" />
+          <input
+            value={note}
+            onChange={savingNote}
+            placeholder="自動更新用メモ"
+          />
         </div>
-
-
       </div>
+      <DeskTopSelect />
+      <MobileSelect />
     </>
   )
 }
